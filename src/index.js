@@ -1,4 +1,9 @@
-import { program } from "commander";
+// import { program } from "commander";
+
+const {program} = require("commander");
+const contactsFunction = require("./contacts.js");
+console.log(contactsFunction);
+
 program
   .option("-a, --action <type>", "choose action")
   .option("-i, --id <type>", "user id")
