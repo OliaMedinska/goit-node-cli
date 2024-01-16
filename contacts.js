@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+import * as fs from 'fs';
 import { join } from 'path';
 
 const contactPath = join(__dirname, 'contacts.json');

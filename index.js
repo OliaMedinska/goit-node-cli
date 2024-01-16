@@ -4,7 +4,7 @@ import {
   getContactById,
   removeContact,
   addContact,
-} from "./contacts.cjs";
+} from "./contacts.js";
 
 program
   .option("-a, --action <type>", "choose action")
