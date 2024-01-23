@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const { json } = require('stream/consumers');
 
-const contactsPath = path.dirname("./db/contacts.json");
+const contactsPath = path.resolve(__dirname, "./db/contacts.json");
 
 async function listContacts() {
     try {
