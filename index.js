@@ -38,3 +38,38 @@ async function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(options);
+
+
+
+
+// Pobierz referencję do dynamicznego diva
+const dynamicElement = document.querySelector('.');
+
+// Utwórz funkcję obsługi zdarzenia
+const handleMutation = (mutationsList, observer) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === 'childList' && mutation.target === dynamicElement) {
+      // Wykonywane, gdy zmienia się zawartość dynamicznego diva
+      console.log('Zawartość dynamicznego diva została zmieniona:', dynamicElement.textContent);
+
+      // Sprawdź zawartość i dodaj tekst w zależności od warunku
+      if (dynamicElement.textContent.includes('Warunek 1')) {
+        // Dodaj tekst w zależności od warunku
+        const newText = 'Tekst dla Warunku 1';
+        // Przykładowa akcja, np. dodanie tekstu do dokumentu
+        document.body.appendChild(document.createTextNode(newText));
+      } else if (dynamicElement.textContent.includes('Warunek 2')) {
+        // Dodaj tekst w zależności od innego warunku
+        const newText = 'Tekst dla Warunku 2';
+        // Przykładowa akcja, np. dodanie tekstu do dokumentu
+        document.body.appendChild(document.createTextNode(newText));
+      }
+    }
+  }
+};
+
+// Utwórz obiekt MutationObserver
+const observer = new MutationObserver(handleMutation);
+
+// Skonfiguruj obserwację zmian wewnątrz dynamicznego diva
+observer.observe(dynamicElement, { childList: true, subtree: true });
